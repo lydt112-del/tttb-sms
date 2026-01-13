@@ -28,7 +28,7 @@
 <body>
 
 <h2>Gửi SMS tới 1414</h2>
-<p>Nhập dãy số:</p>
+<p>Nhập số CCCD:</p>
 
 <input type="number" id="code" placeholder="123456789012">
 
@@ -39,7 +39,7 @@
 function sendSMS() {
     var code = document.getElementById("code").value.trim();
     if (code === "") {
-        alert("Vui lòng nhập dãy số!");
+        alert("Vui lòng nhập số CCCD!");
         return;
     }
     if (!/^\d{12}$/.test(code)) {

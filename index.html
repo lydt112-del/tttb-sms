@@ -91,31 +91,13 @@
 
 <script>
 function sendSMS() {
-    var content = document.getElementById("code").value.trim();
-
-    if (content === "") {
-        alert("Vui lòng nhập nội dung!");
+    var code = document.getElementById("code").value.trim();
+    if (code === "") {
+        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
-
-    var message = "TTTB " + content;
-    var encodedMessage = encodeURIComponent(message);
-    var smsLink = "";
-
-    // iOS
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        smsLink = "sms:1414&body=" + encodedMessage;
-    }
-    // Android
-    else if (/Android/i.test(navigator.userAgent)) {
-        smsLink = "sms:1414?body=" + encodedMessage;
-    }
-    // Trình duyệt khác
-    else {
-        smsLink = "sms:1414?body=" + encodedMessage;
-    }
-
-    window.location.href = smsLink;
+    var sms = "sms:1414?body=" + encodeURIComponent("TTTB " + code);
+    window.location.href = sms;
 }
 </script>
 

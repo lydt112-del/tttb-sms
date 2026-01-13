@@ -4,49 +4,90 @@
     <meta charset="UTF-8">
     <title>Gửi SMS 1414</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Metadata cho Zalo / Preview -->
+    <meta property="og:title" content="Gửi SMS 1414">
+    <meta property="og:description" content="Nhập nội dung và gửi SMS nhanh chóng">
+
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 420px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             text-align: center;
-            padding: 30px;
+        }
+        .logo {
+            max-width: 220px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin-bottom: 10px;
         }
         input {
-            width: 90%;
-            max-width: 300px;
+            width: 100%;
             padding: 12px;
-            font-size: 18px;
-            margin: 15px 0;
-            text-align: center;
+            font-size: 16px;
+            margin-top: 15px;
+            box-sizing: border-box;
         }
         button {
-            padding: 12px 30px;
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
             font-size: 18px;
+            background: #005baa;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
+        }
+        button:hover {
+            background: #004b8d;
+        }
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
         }
     </style>
 </head>
+
 <body>
 
-<h2>Gửi SMS tới 1414</h2>
-<p>Nhập số CCCD hoặc CMT hoặc Passport:</p>
+<div class="container">
+   
+    <h3>Gửi SMS tới 1414</h3>
+    <p>Nhập số CCCD/CMT hoặc Passport:</p>
 
-<input type="text" id="code" placeholder="Nhập số CCCD hoặc CMT hoặc Passport">
-<br>
-<button onclick="sendSMS()">Gửi SMS</button>
+    <input type="text" id="code" placeholder="Ví dụ: 123456789012">
 
-<script>
-<script>
+    <button onclick="sendSMS()">Gửi SMS</button>
+
+    <div class="note">
+        Sau khi bấm, hệ thống sẽ mở ứng dụng SMS.<br>
+        Vui lòng kiểm tra nội dung trước khi gửi.
+    </div>
+</div>
+
 <script>
 function sendSMS() {
-    var code = document.getElementById("code").value.trim();
+    var content = document.getElementById("code").value.trim();
 
-    if (code === "") {
-        alert("Vui lòng nhập số CCCD hoặc CMT hoặc Passport!");
+    if (content === "") {
+        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
 
     // Chuẩn SMSTO – ổn định trên iOS, Android, Zalo
-    var smsLink = "SMSTO:1414:TTTB " + code;
+    var smsLink = "SMSTO:1414:TTTB " + content;
     window.location.href = smsLink;
 }
 </script>

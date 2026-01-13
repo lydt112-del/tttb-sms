@@ -79,16 +79,32 @@
 
 <script>
 function sendSMS() {
-    var code = document.getElementById("code").value.trim();
+    var content = document.getElementById("code").value.trim();
 
-    if (code === "") {
+    if (content === "") {
         alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
 
-    // Chuẩn SMSTO – ổn định trên iOS, Android, Zalo
-    var sms = "SMSTO:1414:TTTB " + content;
-    window.location.href = sms;
+    var message = "TTTB " + content;
+    var encodedMessage = encodeURIComponent(message);
+
+    var smsLink = "";
+
+    // Ưu tiên iOS
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        smsLink = "sms:1414&body=" + encodedMessage;
+    }
+    // Android
+    else if (/Android/i.test(navigator.userAgent)) {
+        smsLink = "sms:1414?body=" + encodedMessage;
+    }
+    // Trường hợp khác
+    else {
+        smsLink = "sms:1414?body=" + encodedMessage;
+    }
+
+    window.location.href = smsLink;
 }
 </script>
 

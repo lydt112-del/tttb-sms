@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Gửi SMS 1414</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        input {
+            width: 90%;
+            max-width: 300px;
+            padding: 12px;
+            font-size: 18px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Gửi SMS tới 1414</h2>
+<p>Nhập dãy số:</p>
+
+<input type="number" id="code" placeholder="123456789012">
+
+<br>
+<button onclick="sendSMS()">Gửi SMS</button>
+
+<script>
+function sendSMS() {
+    var code = document.getElementById("code").value.trim();
+    if (code === "") {
+        alert("Vui lòng nhập dãy số!");
+        return;
+    }
+    if (!/^\d{12}$/.test(code)) {
+        alert("Vui lòng nhập đúng 12 chữ số!");
+        return;
+    }
+    var sms = "sms:1414?body=" + encodeURIComponent("TTTB " + code);
+    window.location.href = sms;
+}
+</script>
+
+</body>
+</html>

@@ -28,24 +28,22 @@
 <body>
 
 <h2>Gửi SMS tới 1414</h2>
-<p>Nhập số CCCD:</p>
+<p>Nhập số CCCD hoặc CMT hoặc Passport:</p>
 
-<input type="number" id="code" placeholder="123456789012">
-
+<input type="text" id="code" placeholder="Nhập số CCCD hoặc CMT hoặc Passport">
 <br>
 <button onclick="sendSMS()">Gửi SMS</button>
 
 <script>
+<script>
 function sendSMS() {
     var code = document.getElementById("code").value.trim();
+
     if (code === "") {
-        alert("Vui lòng nhập số CCCD!");
+        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
-    if (!/^\d{12}$/.test(code)) {
-        alert("Vui lòng nhập đúng 12 chữ số!");
-        return;
-    }
+
     var sms = "sms:1414?body=" + encodeURIComponent("TTTB " + code);
     window.location.href = sms;
 }

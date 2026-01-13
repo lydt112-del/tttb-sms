@@ -79,16 +79,16 @@
 
 <script>
 function sendSMS() {
-    var content = document.getElementById("code").value.trim();
+    var code = document.getElementById("code").value.trim();
 
-    if (content === "") {
+    if (code === "") {
         alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
 
     // Chuẩn SMSTO – ổn định trên iOS, Android, Zalo
-    var smsLink = "SMSTO:1414:TTTB " + content;
-    window.location.href = smsLink;
+    var sms = "SMSTO:1414:TTTB " + content;
+    window.location.href = sms;
 }
 </script>
 

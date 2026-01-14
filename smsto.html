@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>SMSTO 1414</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; text-align: center; padding: 40px; }
+        input, button {
+            padding: 12px;
+            width: 280px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Gửi tin nhắn đến 1414</h3>
+<p><b>Cú pháp:</b> TTTB &lt;CCCD/CMT hoặc Passport&gt;</p>
+<p>Nhập CCCD/CMT hoặc Passport</p>
+
+<input type="text" id="code" placeholder="Nhập CCCD/CMT hoặc Passport">
+
+<br>
+<button onclick="sendSMS()">Gửi SMS</button>
+
+<script>
+function sendSMS() {
+    var code = document.getElementById("code").value.trim();
+    if (code === "") {
+        alert("Vui lòng nhập CCCD/CMT hoặc Passport!");
+        return;
+    }
+    window.location.href = "SMSTO:1414:TTTB " + code;
+}
+</script>
+
+</body>
+</html>

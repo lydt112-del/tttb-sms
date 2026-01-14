@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>SMS 1414</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; text-align: center; padding: 40px; }
+        input, button {
+            padding: 12px;
+            width: 280px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Gửi tin nhắn đến 1414</h3>
+<p><b>Cú pháp:</b> TTTB &lt;số CCCD/CMT hoặc Passport&gt;</p>
+<p>Nhập số CCCD/CMT hoặc Passport</p>
+
+<input type="text" id="code" placeholder="Nhập số CCCD/CMT hoặc Passport">
+
+<br>
+<button onclick="sendSMS()">Gửi SMS</button>
+
+<script>
+function sendSMS() {
+    var code = document.getElementById("code").value.trim();
+    if (code === "") {
+        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
+        return;
+    }
+
+    var message = "TTTB " + code;
+    var link = "sms:1414?body=" + encodeURIComponent(message);
+    window.location.href = link;
+}
+</script>
+
+</body>
+</html>

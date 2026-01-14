@@ -26,7 +26,7 @@
 <p><b>Cú pháp:</b> TTTB &lt;CCCD/CMT hoặc Passport&gt;</p>
 <p>Nhập CCCD/CMT hoặc Passport</p>
 
-<input type="text" id="code" placeholder="Nhập CCCD/CMT hoặc Passport">
+<input type="text" id="code" placeholder="Nhập số CCCD/CMT hoặc Passport">
 
 <br>
 <button onclick="sendSMS()">Gửi SMS</button>
@@ -35,7 +35,7 @@
 function sendSMS() {
     var code = document.getElementById("code").value.trim();
     if (code === "") {
-        alert("Vui lòng nhập CCCD/CMT hoặc Passport!");
+        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
         return;
     }
     window.location.href = "SMSTO:1414:TTTB " + code;

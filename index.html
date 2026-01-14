@@ -2,104 +2,33 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Gửi SMS 1414</title>
+    < title>Gửi SMS 1414</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Metadata preview cho Zalo / MXH -->
-    <meta property="og:title" content="Gửi SMS 1414">
-    <meta property="og:description" content="Nhập nội dung và gửi SMS nhanh chóng">
-
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f2f4f8;
-            padding: 20px;
-        }
-        .container {
-            max-width: 420px;
-            margin: auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             text-align: center;
+            padding: 40px;
         }
-        h3 {
-            margin-bottom: 10px;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-top: 15px;
-            box-sizing: border-box;
-        }
-        button {
-            margin-top: 20px;
-            padding: 12px;
-            width: 100%;
-            font-size: 18px;
-            background: #005baa;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #004b8d;
-        }
-        .note {
-            margin-top: 18px;
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            background: #f7f9fc;
-            padding: 12px;
+        a {
+            display: block;
+            margin: 20px auto;
+            padding: 15px;
+            width: 280px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
             border-radius: 8px;
-        }
-        .manual {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
-        }
-        .manual b {
-            color: #005baa;
         }
     </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h3>Gửi SMS tới 1414</h3>
-    <p>Nhập số CCCD/CMT hoặc Passport:</p>
+<h2>Gửi SMS tới 1414</h2>
+<p>Chọn cách gửi tin nhắn phù hợp với điện thoại của bạn</p>
 
-    <input type="text" id="code" placeholder="Ví dụ: 123456789012">
-
-    <button onclick="sendSMS()">Gửi SMS</button>
-
-    <div class="note">
-        ⚠️ Sau khi bấm <b>Gửi SMS</b>, hệ thống sẽ mở ứng dụng Tin nhắn.<br>
-        Vui lòng <b>kiểm tra nội dung</b> trước khi gửi.
-    </div>
-
-    <div class="manual">
-        ❗ Trường hợp <b>không mở được SMS</b>, vui lòng mở ứng dụng Tin nhắn và gửi thủ công:<br>
-        <b>TTTB &lt;CCCD/CMT/Passport&gt;</b> gửi tới <b>1414</b>
-    </div>
-</div>
-
-<script>
-function sendSMS() {
-    var code = document.getElementById("code").value.trim();
-    if (code === "") {
-        alert("Vui lòng nhập số CCCD/CMT hoặc Passport!");
-        return;
-    }
-    var sms = "sms:1414?body=" + encodeURIComponent("TTTB " + code);
-    window.location.href = sms;
-}
-</script>
+<a href="smsto.html">Cách 1: SMSTO (Android ổn định)</a>
+<a href="sms.html">Cách 2: sms:?body= (iPhone / Zalo)</a>
 
 </body>
 </html>
